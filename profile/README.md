@@ -137,3 +137,8 @@ function calc(t) {
 return a;
 }
 ```
+
+---
+## 참고 문헌
+- https://semver.org/lang/ko/
+- https://www.conventionalcommits.org/ko/v1.0.0/
