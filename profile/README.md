@@ -17,30 +17,18 @@ fix: DB 연결 에러 수정
 refactor: ReportService 구조 단순화
 ```
 
-❌ **Bad**
-```
-add login
-버그 수정함
-Update code
-```
-
 ### 1-2. 본문 작성 규칙
-- **PR 목적**을 명확히 설명 (예: 버그 수정, 기능 추가, 성능 개선, 리팩토링 등)  
-- 관련 이슈가 있을 경우 연결:  
-  ```
-  closes #123
-  resolves #456
-  ```  
+- **PR 목적**을 명확히 설명한다. (예: 버그 수정, 기능 추가, 성능 개선, 리팩토링 등)  
+- 관련 이슈가 있을 경우 `closes`로 연결한다.
 - UI 관련 변경사항이 포함될 경우 **스크린샷 첨부**  
-  - Desktop, Mobile **둘 다 첨부**하여 반응형 테스트 용이하게 할 것  
-  - 변경된 UI가 명확히 비교되도록 Before / After 형태 권장  
+  - Desktop, Mobile **둘 다 첨부**하여 반응형 테스트 용이하게 한다. 
+  - 변경된 UI가 명확히 비교되도록 Before / After 형태를 권장한다.
 
 ✅ **Good**
 ```
 feat: 보고서 상세 페이지 UI 개선
 
 - 보고서 상세 페이지에서 status 뱃지 색상 변경
-- 불필요한 console.log 제거
 - closes #42
 
 [스크린샷 첨부]
@@ -48,10 +36,26 @@ Desktop: (before / after)
 Mobile: (before / after)
 ```
 
+## 1-3. 커밋 단위
+
+-   한 커밋에는 **하나의 논리적 변경**만 포함한다.
+-   기능 추가, 버그 수정, 리팩토링을 섞지 않는다.
+-   "작업 저장용" 커밋은 지양. 필요시 작업을 분리하거나, 여러 커밋을 squash 한다.
+  
+✅ **Good**
+```
+    feat: 소셜 로그인 API 추가
+    fix: 보고서 목록 조회 시 NullPointer 에러 수정
+    refactor: UserService 구조 단순화
+    style: 차트 색상 코드 정리
+```
+
 ❌ **Bad**
 ```
-UI 바꿈
-수정함
+
+    feat: 로그인 + 보고서 수정
+    fix: 전체 버그 수정
+    refactor: 여러 군데 리팩토링
 ```
 
 ---
@@ -80,10 +84,11 @@ import { formatDate } from "~/utils/date";
 
 ---
 
-## 3. 변수/함수 네이밍 (Typescript 한정)
+## 3. 변수/함수 네이밍 
 - camelCase: 일반 변수, 함수명  
 - PascalCase: 클래스, React 컴포넌트  
-- UPPER_CASE: 상수  
+- UPPER_CASE: 상수
+- 그 외에는 해당 언어의 컨벤션을 따른다.
 
 ✅ **Good**
 ```ts
@@ -106,9 +111,9 @@ const MaxRetryCount = 3;
 ## 4. 코드 스타일
 - 들여쓰기: 1 탭 (tab)
 - 세미콜론 사용 필수  
-- 불필요한 console.log 등 로깅 제거
-- 추후 작업할 부분은 주석으로 `// TODO` 기재
-- 주석은 쓴다면 **왜**를 설명, **무엇**은 코드로 드러나야 함
+- 불필요한 console.log 등 로깅은 제거한다.
+- 추후 작업할 부분은 주석으로 `// TODO` 기재한다.
+- 주석은 쓴다면 **왜**를 설명, **무엇**은 코드로 드러나야 한다.
 
 ✅ **Good**
 ```ts
@@ -123,9 +128,10 @@ function calculateUserPoints(transactions: Transaction[]): number {
 // 포인트
 function calc(t) {
   let a = 0;
-  for (let i = 0; i < t.length; i++) {
+ for (let i = 0; i < t.length; i++) {
     a += t[i].amount;
   }
-  return a;
+  console.log(a);
+return a;
 }
 ```
