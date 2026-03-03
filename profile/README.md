@@ -130,11 +130,11 @@ function calculateUserPoints(transactions: Transaction[]): number {
 // 포인트
 function calc(t) {
   let a = 0;
- for (let i = 0; i < t.length; i++) {
+  for (let i = 0; i < t.length; i++) {
     a += t[i].amount;
   }
   console.log(a);
-return a;
+  return a;
 }
 ```
 
