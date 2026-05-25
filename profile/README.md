@@ -1,7 +1,7 @@
 # 민이앤아이 코드 컨벤션
 
 해당 컨벤션은 효율적인 코드 리뷰와 유지보수를 목적으로 합니다.  
-> 추구하는 컨벤션은 'profile/karpathy-guidelines.mdc'에 있으니,  
+> 추구하는 컨벤션은 ['profile/karpathy-guidelines.mdc'](https://github.com/mineni-korea/.github/blob/main/profile/karpathy-guidelines.mdc)에 있으니,  
 > cursor 등의 코딩LLM 활용 시 적극 응용하기를 권장합니다.
 
 ## 1. Pull Request 규칙
